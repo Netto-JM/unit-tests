@@ -18,6 +18,12 @@
   Caso a função seja chamada sem nenhum parâmetro, o valor undefined deve ser retornado.
 */
 
-const vqv = () => {};
+const vqv = (name, age) => {
+  const noArgumentsPassed = [name, age].some((parameter) => typeof parameter === 'undefined');
+  if (noArgumentsPassed) return;
+  const templateLiteralMessage = `Oi, meu nome é ${name}!\nTenho ${age} anos,\n`
+  + 'trabalho na Trybe e mando muito em programação!\n#VQV!';
+  return templateLiteralMessage;
+};
 
 module.exports = vqv;
