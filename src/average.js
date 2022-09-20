@@ -11,6 +11,13 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (array) => {
+  const isEmpty = array.length === 0;
+  const haveInvalidValues = array.some((number) => typeof number !== 'number');
+  if (isEmpty || haveInvalidValues) return;
+  const total = array.reduce((previousValue, currentValue) => previousValue + currentValue);
+  const roundedAverage = Math.round(total / array.length);
+  return roundedAverage;
+};
 
 module.exports = average;
