@@ -22,15 +22,50 @@ const circle = require('../src/circle');
 */
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
-  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
-    // Teste se circle retorna um objeto.
-    // Teste se o objeto retornado possui 3 propriedades.
-    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2.
-    // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3.
-    // Teste se a função retorna, em um objeto, os dados corretos de um círculo de raio 3.
+  // ESCREVA SEUS TESTES ABAIXO:
+  const circleRadiusTest = circle(5);
+
+  it('Testa se circle retorna undefined, caso o parâmetro passado não seja um número', () => {
+    expect(circle('w')).toBeUndefined();
+    expect(circle([])).toBeUndefined();
+    expect(circle(false)).toBeUndefined();
   });
+
+  it('Testa se circle retorna um objeto', () => {
+    expect(typeof circleRadiusTest).toBe('object');
+  });
+  
+  it('Testa se o objeto retornado possui 3 propriedades', () => {
+    expect(Object.keys(circleRadiusTest).length).toBe(3);
+  });
+  
+  it('Testa se a função, quando não recebe nenhum parâmetro, retorna undefined', () => {
+    expect(circle()).toBeUndefined();
+  });
+  
+  it('Testa se dentro do objeto retornado, a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2', () => {
+    // expect(Object.entries(circleRadiusOf2)).toContain([ 'area', 12.56 ]); not working
+    expect(Object.values(circle(2))).toContain(12.56);
+  });
+    
+  it('Testa se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3', () => {
+    expect(circle(3).area).toBeCloseTo(28.26); //giving up
+  });
+  //expect(Object.values(circleRadiusOf3)).toContain(expect.toBeCloseTo(28.26)); not working
+/*  expect(Object.values(circleRadiusOf3)).toEqual(
+    expect.arrayContaining([
+      expect.toBeCloseTo(28.26)
+    ])
+  ); 
+  not working*/ 
+  //Object.values(circleRadiusOf3).forEach((value) => { expect(value).toBeCloseTo(28.26)}) wrong answer
+
+  it('Testa se a função retorna, em um objeto, os dados corretos de um círculo de raio 3', () => {
+    const PI = 3.14;
+    expect(circle(3)).toEqual({
+      radius: 3,
+      area: PI * 3 * 3,
+      circumference: 2 * PI * 3,
+    });
+  }); 
 });
