@@ -35,7 +35,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Testa se productDetails é uma função', () => {
     expect(productDetails).toBeInstanceOf(Function);
   });
-  it('Testa se productDetails é uma função', () => {
+  it('Teste se o retorno da função é um array', () => {
     expect(detailsOfProducts).toBeInstanceOf(Array);
   });
   it('Testa se o array retornado pela função contém dois itens dentro', () => {
