@@ -42,10 +42,12 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     expect(detailsOfProducts).toHaveLength(2);
   });
   it('Testa se os dois itens dentro do array retornado pela função são objetos', () => {
-    detailsOfProducts.forEach(product => expect(product).toBeInstanceOf(Object))
+    detailsOfProducts.forEach((product) => expect(product).toBeInstanceOf(Object))
   });
   it('Testa se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si', () => {
     expect(detailsOfProducts[0]).not.toEqual(detailsOfProducts[1]);
   });
-  // Teste se os dois productIds terminam com 123.
+  it('Testa se os dois productIds terminam com 123', () => {
+    detailsOfProducts.forEach((product) => expect(product.details.productId).toMatch(/123$/))
+  });
 });
