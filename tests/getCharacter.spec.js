@@ -60,7 +60,6 @@ const characters = {
 };
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
-  // ESCREVA SEUS TESTES ABAIXO:
   it('Testa se a função, quando não recebe nenhum parâmetro, retorna undefined', () => {
     expect(getCharacter()).toBeUndefined();
   });
@@ -74,5 +73,14 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     expect(getCharacter("Melissandre")).toEqual(characters.melissandre);
   });
   it('Teste se o parâmetro não é Case Sensitive, ou seja, independente de conter letras maiúsculas ou minúsculas retorna o mesmo objeto relativo a ele', () => {});
-  it('Teste se ao passar um nome que não está na tabela, a função retorna undefined', () => {});
+  it('Teste se ao passar um nome que não está na tabela, a função retorna undefined', () => {
+    expect(getCharacter("Thalles")).toBeUndefined();
+    expect(getCharacter("Aninha")).toBeUndefined();
+    expect(getCharacter("Lukinha")).toBeUndefined();
+    expect(getCharacter("Caique")).toBeUndefined();
+    expect(getCharacter("Noel")).toBeUndefined();
+    expect(getCharacter("Tata")).toBeUndefined();
+    expect(getCharacter("Bruno")).toBeUndefined();
+    expect(getCharacter("Luanda")).toBeUndefined();
+  });
 });
