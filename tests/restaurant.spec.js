@@ -152,6 +152,12 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
   // objetoRetornado.order('coxinha');
   // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
   // ```
-
+  it('Verifica se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`', () => {
+    const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("coxinha");
+    expect(objetoRetornado.pay()).toBe(12.87);
+  });
   // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });
