@@ -87,17 +87,6 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(objetoRetornado.consumption).toEqual([]);
   });
 
-  // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
-  // --------------------------------------------------------------------------------------
-
-  // TESTE 5: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado,
-  // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
-  // ao array retornado em `objetoRetornado.consumption`.
-  // ```
-  // const objetoRetornado = createMenu(objetoQualquer);
-  // objetoRetornado.order("coxinha");
-  // objetoRetornado.consumption // Retorno: ["coxinha"]
-  // ```
   it('Verifica se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, tal string é adicionada ao array retornado em `objetoRetornado.consumption`', () => {
     const objetoRetornado = createMenu(objetoQualquer);
     const pedidoFeito = objetoRetornado.order("coxinha");
@@ -105,17 +94,6 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(objetoRetornado.consumption).toEqual(["coxinha"]);
   });
 
-  // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
-  // --------------------------------------------------------------------------------------
-
-  // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
-  // ```
-  // objetoRetornado.order("coxinha");
-  // objetoRetornado.order("agua");
-  // objetoRetornado.order("sopa");
-  // objetoRetornado.order("sashimi");
-  // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-  // ```
   it('Verifica se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos', () => {
     const objetoRetornado = createMenu(objetoQualquer);
     objetoRetornado.order("coxinha");
@@ -125,16 +103,6 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(objetoRetornado.consumption).toEqual(["coxinha", "agua", "sopa", "sashimi"]);
   });
 
-  // Agora faça o TESTE 7 deste arquivo.
-  // --------------------------------------------------------------------------------------
-
-  // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a `consumption`.
-  // ```
-  // objetoRetornado.order('coxinha');
-  // objetoRetornado.order('agua');
-  // objetoRetornado.order('coxinha');
-  // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
-  // ```
   it('Verifica se a função `order` aceita que pedidos repetidos sejam acrescidos a `consumption`', () => {
     const objetoRetornado = createMenu(objetoQualquer);
     objetoRetornado.order("coxinha");
@@ -142,16 +110,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     objetoRetornado.order("coxinha");
     expect(objetoRetornado.consumption).toEqual(["coxinha", "agua", "coxinha"]);
   });
-  // Agora faça o TESTE 8 deste arquivo.
-  // --------------------------------------------------------------------------------------
 
-  // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
-  // ```
-  // objetoRetornado.order('coxinha');
-  // objetoRetornado.order('agua');
-  // objetoRetornado.order('coxinha');
-  // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
-  // ```
   it('Verifica se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`', () => {
     const objetoRetornado = createMenu(objetoQualquer);
     objetoRetornado.order("coxinha");
@@ -159,5 +118,4 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     objetoRetornado.order("coxinha");
     expect(objetoRetornado.pay()).toBe(12.87);
   });
-  // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });
