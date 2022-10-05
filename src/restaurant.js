@@ -97,12 +97,25 @@ const restaurant = {};
 
 function orderFromMenu(request) {
   this.consumption.push(request);
-} // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
+}
+
+function payTotal() {
+  const menu = this.fetchMenu();
+  let total = 0;
+  const orders = this.consumption;
+  orders.forEach((order) => {
+    if (Object.keys(menu.food).includes(order)) total += menu.food[order];
+    if (Object.keys(menu.drink).includes(order)) total += menu.drink[order];
+  });
+  const tip = total * 0.1;
+  return total + tip;
+}
 
 const createMenu = (myMenu) => {
   restaurant.fetchMenu = () => myMenu;
   restaurant.consumption = [];
   restaurant.order = orderFromMenu;
+  restaurant.pay = payTotal;
   return restaurant;
 };
 
