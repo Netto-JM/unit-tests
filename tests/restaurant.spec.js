@@ -56,13 +56,13 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
 
   const objetoQualquer = {
     food: {
-      'coxinha': 3.9,
-      'sopa': 9.9
+      coxinha: 3.9,
+      sopa: 9.9,
     },
     drink: {
-      'agua': 3.9,
-      'cerveja': 6.9
-    }
+      agua: 3.9,
+      cerveja: 6.9,
+    },
   };
 
   it('Verifica se a função `createMenu()` retorna um objeto que possui a chave `fetchMenu`, a qual tem como valor uma função', () => {
@@ -98,7 +98,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
   // objetoRetornado.order("coxinha");
   // objetoRetornado.consumption // Retorno: ["coxinha"]
   // ```
-  it('Verica se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, tal string é adicionada ao array retornado em `objetoRetornado.consumption`', () => {
+  it('Verifica se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, tal string é adicionada ao array retornado em `objetoRetornado.consumption`', () => {
     const objetoRetornado = createMenu(objetoQualquer);
     const pedidoFeito = objetoRetornado.order("coxinha");
     expect(pedidoFeito).toBeUndefined();
