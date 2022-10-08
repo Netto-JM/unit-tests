@@ -30,12 +30,11 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  // ESCREVA SEUS TESTES ABAIXO:
   const detailsOfProducts = productDetails('Alcool gel', 'Máscara');
   it('Testa se productDetails é uma função', () => {
     expect(productDetails).toBeInstanceOf(Function);
   });
-  it('Teste se o retorno da função é um array', () => {
+  it('Testa se o retorno da função é um array', () => {
     expect(detailsOfProducts).toBeInstanceOf(Array);
   });
   it('Testa se o array retornado pela função contém dois itens dentro', () => {
